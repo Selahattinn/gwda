@@ -506,7 +506,7 @@ func (wd *remoteWD) TapFloat(x, y float64) (err error) {
 		"x": x,
 		"y": y,
 	}
-	_, err = wd.executePost(data, "/session", wd.sessionId, "/wda/tap/0")
+	_, err = wd.executePost(data, "/session", wd.sessionId, "/wda/tap")
 	return
 }
 
