@@ -989,7 +989,7 @@ type WebDriver interface {
 
 	// Swipe works like Drag, but `pressForDuration` value is 0
 	Swipe(fromX, fromY, toX, toY int) error
-	SwipeFloat(fromX, fromY, toX, toY float64) error
+	SwipeFloat(fromX, fromY, toX, toY, delay float64) error
 
 	ForceTouch(x, y int, pressure float64, second ...float64) error
 	ForceTouchFloat(x, y, pressure float64, second ...float64) error
@@ -1119,7 +1119,7 @@ type WebElement interface {
 	// Swipe works like Drag, but `pressForDuration` value is 0.
 	// relative to the current element position
 	Swipe(fromX, fromY, toX, toY int) error
-	SwipeFloat(fromX, fromY, toX, toY float64) error
+	SwipeFloat(fromX, fromY, toX, toY, delay float64) error
 	// SwipeDirection Performs swipe gesture on the element.
 	//  velocity: swipe speed in pixels per second. Custom velocity values are only supported since Xcode SDK 11.4.
 	SwipeDirection(direction Direction, velocity ...float64) error

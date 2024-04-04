@@ -563,11 +563,20 @@ func (wd *remoteWD) DragFloat(fromX, fromY, toX, toY float64, pressForDuration .
 }
 
 func (wd *remoteWD) Swipe(fromX, fromY, toX, toY int) error {
-	return wd.SwipeFloat(float64(fromX), float64(fromY), float64(toX), float64(toY))
+	return wd.SwipeFloat(float64(fromX), float64(fromY), float64(toX), float64(toY), 0.05)
 }
 
-func (wd *remoteWD) SwipeFloat(fromX, fromY, toX, toY float64) error {
-	return wd.DragFloat(fromX, fromY, toX, toY, 0)
+func (wd *remoteWD) SwipeFloat(startX, startY, endX, endY, delay float64) error {
+	data := map[string]interface{}{
+		"startX": startX,
+		"startY": startY,
+		"endX":   endX,
+		"endY":   endY,
+		"delay":  delay,
+	}
+
+	_, err := wd.executePost(data, "/wda/swipe")
+	return err
 }
 
 func (wd *remoteWD) ForceTouch(x, y int, pressure float64, second ...float64) error {

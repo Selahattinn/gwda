@@ -137,10 +137,10 @@ func (we remoteWE) DragFloat(fromX, fromY, toX, toY float64, pressForDuration ..
 }
 
 func (we remoteWE) Swipe(fromX, fromY, toX, toY int) error {
-	return we.SwipeFloat(float64(fromX), float64(fromY), float64(toX), float64(toY))
+	return we.SwipeFloat(float64(fromX), float64(fromY), float64(toX), float64(toY), 0.05)
 }
 
-func (we remoteWE) SwipeFloat(fromX, fromY, toX, toY float64) error {
+func (we remoteWE) SwipeFloat(fromX, fromY, toX, toY, delay float64) error {
 	return we.DragFloat(fromX, fromY, toX, toY, 0)
 }
 
