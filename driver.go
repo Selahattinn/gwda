@@ -506,7 +506,7 @@ func (wd *remoteWD) TapFloat(x, y float64) (err error) {
 		"x": x,
 		"y": y,
 	}
-	_, err = wd.executePost(data, "/session", wd.sessionId, "/wda/tap")
+	_, err = wd.executePost(data, "/wda/tap")
 	return
 }
 
@@ -520,7 +520,7 @@ func (wd *remoteWD) DoubleTapFloat(x, y float64) (err error) {
 		"x": x,
 		"y": y,
 	}
-	_, err = wd.executePost(data, "/session", wd.sessionId, "/wda/doubleTap")
+	_, err = wd.executePost(data, "/wda/doubleTap")
 	return
 }
 
@@ -538,7 +538,7 @@ func (wd *remoteWD) TouchAndHoldFloat(x, y float64, second ...float64) (err erro
 		second = []float64{1.0}
 	}
 	data["duration"] = second[0]
-	_, err = wd.executePost(data, "/session", wd.sessionId, "/wda/touchAndHold")
+	_, err = wd.executePost(data, "/wda/touchAndHold")
 	return
 }
 
@@ -558,7 +558,7 @@ func (wd *remoteWD) DragFloat(fromX, fromY, toX, toY float64, pressForDuration .
 		pressForDuration = []float64{1.0}
 	}
 	data["duration"] = pressForDuration[0]
-	_, err = wd.executePost(data, "/session", wd.sessionId, "/wda/dragfromtoforduration")
+	_, err = wd.executePost(data, "/wda/dragfromtoforduration")
 	return
 }
 
